@@ -430,7 +430,7 @@ static inline void task_thp_status(struct seq_file *m, struct mm_struct *mm)
 
 	if (thp_enabled)
 		thp_enabled = !test_bit(MMF_DISABLE_THP, &mm->flags);
-	seq_printf(m, "THP_enabled:\t%d\n", thp_enabled);
+	seq_put_decimal_ull(m, "THP_enabled:\t", thp_enabled);
 }
 
 int proc_pid_status(struct seq_file *m, struct pid_namespace *ns,
